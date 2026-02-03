@@ -117,7 +117,6 @@ EXPOSE 8000
 CMD ["streamlit", "run", "app.py", "--server.port=8000", "--server.address=0.0.0.0", "--server.headless=true"]
 ```
 
-
 2. **Crear un archivo llamado `docker-compose.yml` en la raíz del proyecto:**:
 
 ```yml
@@ -270,10 +269,6 @@ Mantenemos las configuraciones, pero si quieres puedes cambiar el combre:
 Bajamos un poco más, y seleccionamos el plan gratuito:
 
 ![alt text](./assets/image-10.png)
-
-Agregamos nuestras variables de entorno:
-
-![alt text](./assets/image-11.png)
 
 Iniciamos el deploy:
 
