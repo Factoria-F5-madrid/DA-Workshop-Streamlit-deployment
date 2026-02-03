@@ -1,33 +1,25 @@
-# 🚀 Streamlit ML App - Despliegue con Docker
+# 🚀 Streamlit ML App - Despliegue con Docker y Render
 
 # API CRUD con Django y Django REST Framework
 
 ## Índice
 
-1. [Introducción](#introducción)
-2. [Requisitos Previos](#requisitos-previos)
-3. [Configuración del Proyecto](#configuración-del-proyecto)
-4. [Dockerization](#dockerization)
-5. [Creación del Modelo](#creación-del-modelo)
-6. [Implementación del Serializador](#implementación-del-serializador)
-7. [Creación de Vistas API](#creación-de-vistas-api)
-8. [Configuración de URLs](#configuración-de-urls)
-9. [Prueba de la API](#prueba-de-la-api)
-10. [Mejores Prácticas](#mejores-prácticas)
-11. [Recursos Adicionales](#recursos-adicionales)
+1. [Requisitos Previos](#requisitos-previos)
+2. [Estructura de Carpetas](#estructura-de-carpetas)
+3. [Configuración Inicial del Proyecto](#configuración-inicial-del-proyecto)
+4. [Cuentas Necesarias](#cuentas-necesarias)
+5. [Dockerización](#dockerización)
+   - [Configuración](#configuración)
+   - [Comandos Útiles de Docker](#comandos-útiles-de-docker)
+6. [Deployment a Docker Hub y Render](#deployment-a-docker-hub-y-render)
+   - [Subir Imagen a Docker Hub Manualmente](#subir-imagen-a-docker-hub-manualmente)
+   - [Subir Imagen a Render](#subir-imagen-a-render)
 
 ## Requisitos Previos
 
 - Python 3.8+
 - pip (gestor de paquetes de Python)
 - Docker and Docker Compose
-- Workbench instalado para hacer pruebas en local de ser necesario
-
-## Clona la Rama `simple-rest-CRUD`
-
-```bash
-git clone -b django-restf-deploy --single-branch https://github.com/Factoria-F5-madrid/Python_Deployment_Automate.git
-```
 
 ### Estructura de carpetas
 ```plaintext
@@ -47,8 +39,7 @@ DA-Workshop-Streamlit-deployment/ # Carpeta donde guardas tu proyecto
 ├── requirements.txt
 ```
 
-
-### Al abrir el proyecto:
+### Configuración Inicial del Proyecto
 
 Crear el entorno virtual
 ```bash
@@ -75,7 +66,7 @@ Instalar las dependencias necesarias con tu archivo reu¿quirements.txt
  pip install -r requirements.txt
 ```
 
-## Cuentas necesaria
+## Cuentas Necesarias
  - Crea una cuenta en [Docker hub](https://www.docker.com/products/docker-hub/) para subir imágenes de docker públicas - como un github pero de imágenes de docker -
 
 ## Dockerización
