@@ -1,0 +1,45 @@
+# Especifica la versión del formato de archivo Docker Compose a utilizar
+# La versión 3.8 es compatible con Docker Engine 19.03.0+ y soporta todas las características modernas
+version: '3.8'
+
+# Define la sección donde se declaran todos los contenedores (servicios) de la aplicación
+# Cada servicio representa un contenedor que formará parte de la aplicación multi-contenedor
+services:
+
+  # Define el primer servicio llamado "app"
+  # Este nombre se usará como hostname interno entre contenedores
+  app:
+    # Indica que debe construir la imagen desde el Dockerfile en el directorio actual
+    # El punto (.) se refiere al directorio donde está ubicado el docker-compose.yml
+    build: .
+    
+    # Mapea puertos entre el host y el contenedor
+    # Formato: "puerto_host:puerto_contenedor"
+    # El puerto 8000 del host se conectará al puerto 8000 del contenedor
+    ports:
+      - "8000:8000"
+    
+    # Sobrescribe el comando CMD definido en el Dockerfile
+    # Ejecuta la aplicación Streamlit con configuración específica para este servicio
+    # streamlit run app.py: ejecuta el archivo app.py con Streamlit
+    # --server.port=8000: configura el puerto interno del contenedor
+    # --server.address=0.0.0.0: acepta conexiones desde cualquier IP
+    # --server.headless=true: modo sin interfaz gráfica (apropiado para contenedores)
+    command: ["streamlit", "run", "app.py", "--server.port=8000", "--server.address=0.0.0.0", "--server.headless=true"]
+
+  # Define el segundo servicio llamado "dashboard"
+  # Este servicio ejecutará la aplicación dashboard en paralelo con "app"
+  dashboard:
+    # Construye la imagen usando el mismo Dockerfile que el servicio "app"
+    # Docker Compose reutilizará la imagen si ya fue construida
+    build: .
+    
+    # Mapea el puerto 8001 del host al puerto 8001 del contenedor dashboard
+    # Esto permite acceder a ambos servicios simultáneamente en puertos diferentes
+    ports:
+      - "8001:8001"
+    
+    # Comando específico para ejecutar dashboard.py en lugar de app.py
+    # Usa el puerto 8001 para evitar conflictos con el servicio "app"
+    # El resto de parámetros son idénticos para mantener consistencia
+    command: ["streamlit", "run", "dashboard.py", "--server.port=8001", "--server.address=0.0.0.0", "--server.headless=true"]
