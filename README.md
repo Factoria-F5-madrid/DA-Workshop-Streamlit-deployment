@@ -1,6 +1,6 @@
 # CI/CD: Publicación automática de la imagen en Docker Hub con GitHub Actions
 
-En esta guía, configuraremos un flujo de trabajo de Integración Continua y Despliegue Continuo (CI/CD) utilizando GitHub Actions. El objetivo es automatizar la construcción y publicación de nuestra imagen de Docker en Docker Hub cada vez que realicemos un `push` a la rama `main` u otra que definamos, en este caso `ci-cd-django-restf`.
+En esta guía, configuraremos un flujo de trabajo de Integración Continua y Despliegue Continuo (CI/CD) utilizando GitHub Actions. El objetivo es automatizar la construcción y publicación de nuestra imagen de Docker en Docker Hub cada vez que realicemos un `push` a la rama `main`.
 
 ## Prerrequisitos
 
