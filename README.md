@@ -29,31 +29,31 @@ cd DA-Workshop-Streamlit-deployment
 
 ### 3. Cambiar el Origen Remoto
 
+Eliminar el origen actual
 ```bash
-# Eliminar el origen actual
 git remote remove origin
 ```
 
+Agregar tu nuevo repositorio como origen
 ```bash
-# Agregar tu nuevo repositorio como origen
 git remote add origin https://github.com/TU-USUARIO/TU-NUEVO-REPO.git
 ```
 
+Verificar el cambio
 ```bash
-# Verificar el cambio
 git remote -v
 ```
 
 ### 4. Subir a tu Repositorio
 
+Hacer commit de cualquier cambio local
 ```bash
-# Hacer commit de cualquier cambio local
 git add .
 ```
 ```bash
 git commit -m "Initial commit: Streamlit ML apps with Docker"
 ```
+Subir a tu repositorio
 ```bash
-# Subir a tu repositorio
 git push -u origin main
 ```
