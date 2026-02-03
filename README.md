@@ -16,6 +16,8 @@ Este proyecto contiene aplicaciones de Machine Learning desarrolladas con Stream
 
 ```bash
 git clone https://github.com/Factoria-F5-madrid/DA-Workshop-Streamlit-deployment.git
+```
+```bash
 cd DA-Workshop-Streamlit-deployment
 ```
 
@@ -30,10 +32,14 @@ cd DA-Workshop-Streamlit-deployment
 ```bash
 # Eliminar el origen actual
 git remote remove origin
+```
 
+```bash
 # Agregar tu nuevo repositorio como origen
 git remote add origin https://github.com/TU-USUARIO/TU-NUEVO-REPO.git
+```
 
+```bash
 # Verificar el cambio
 git remote -v
 ```
@@ -43,8 +49,11 @@ git remote -v
 ```bash
 # Hacer commit de cualquier cambio local
 git add .
+```
+```bash
 git commit -m "Initial commit: Streamlit ML apps with Docker"
-
+```
+```bash
 # Subir a tu repositorio
 git push -u origin main
 ```
