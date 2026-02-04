@@ -1,4 +1,4 @@
-# 🚀 Streamlit ML App - Despliegue con Docker y Render
+# Streamlit ML App - Despliegue con Docker y Render
 
 # API CRUD con Django y Django REST Framework
 
@@ -114,7 +114,7 @@ EXPOSE 8000
 # --server.port=8000: configura Streamlit para usar el puerto 8000
 # --server.address=0.0.0.0: permite conexiones desde cualquier dirección IP (no solo localhost)
 # --server.headless=true: ejecuta Streamlit en modo headless (sin interfaz gráfica local)
-CMD ["streamlit", "run", "app.py", "--server.port=8000", "--server.address=0.0.0.0", "--server.headless=true"]
+CMD ["streamlit", "run", "dashboard.py", "--server.port=8000", "--server.address=0.0.0.0", "--server.headless=true"]
 ```
 
 2. **Crear un archivo llamado `docker-compose.yml` en la raíz del proyecto:**:
@@ -147,24 +147,7 @@ services:
     # --server.port=8000: configura el puerto interno del contenedor
     # --server.address=0.0.0.0: acepta conexiones desde cualquier IP
     # --server.headless=true: modo sin interfaz gráfica (apropiado para contenedores)
-    command: ["streamlit", "run", "app.py", "--server.port=8000", "--server.address=0.0.0.0", "--server.headless=true"]
-
-  # Define el segundo servicio llamado "dashboard"
-  # Este servicio ejecutará la aplicación dashboard en paralelo con "app"
-  dashboard:
-    # Construye la imagen usando el mismo Dockerfile que el servicio "app"
-    # Docker Compose reutilizará la imagen si ya fue construida
-    build: .
-    
-    # Mapea el puerto 8001 del host al puerto 8001 del contenedor dashboard
-    # Esto permite acceder a ambos servicios simultáneamente en puertos diferentes
-    ports:
-      - "8001:8001"
-    
-    # Comando específico para ejecutar dashboard.py en lugar de app.py
-    # Usa el puerto 8001 para evitar conflictos con el servicio "app"
-    # El resto de parámetros son idénticos para mantener consistencia
-    command: ["streamlit", "run", "dashboard.py", "--server.port=8001", "--server.address=0.0.0.0", "--server.headless=true"]
+    command: ["streamlit", "run", "dashboard.py", "--server.port=8000", "--server.address=0.0.0.0", "--server.headless=true"]
 ```
 
 3. **Construir y ejecutar los contenedores:**
@@ -237,7 +220,7 @@ Estos son los pasos para construir tu imagen de Docker, subirla a Docker Hub y l
 1. Creamos un servicio en Render
 
 ![crear servicio en render](./assets/image-1.png)
-2. Agregaos la imagen de nuestro dockerhub
+2. Agregamos la imagen de nuestro dockerhub
 
 ![render imagen docker](./assets/image-2.png)
 
