@@ -26,20 +26,3 @@ services:
     # --server.address=0.0.0.0: acepta conexiones desde cualquier IP
     # --server.headless=true: modo sin interfaz gráfica (apropiado para contenedores)
     command: ["streamlit", "run", "app.py", "--server.port=8000", "--server.address=0.0.0.0", "--server.headless=true"]
-
-  # Define el segundo servicio llamado "dashboard"
-  # Este servicio ejecutará la aplicación dashboard en paralelo con "app"
-  dashboard:
-    # Construye la imagen usando el mismo Dockerfile que el servicio "app"
-    # Docker Compose reutilizará la imagen si ya fue construida
-    build: .
-    
-    # Mapea el puerto 8001 del host al puerto 8001 del contenedor dashboard
-    # Esto permite acceder a ambos servicios simultáneamente en puertos diferentes
-    ports:
-      - "8001:8001"
-    
-    # Comando específico para ejecutar dashboard.py en lugar de app.py
-    # Usa el puerto 8001 para evitar conflictos con el servicio "app"
-    # El resto de parámetros son idénticos para mantener consistencia
-    command: ["streamlit", "run", "dashboard.py", "--server.port=8001", "--server.address=0.0.0.0", "--server.headless=true"]
