@@ -25,4 +25,4 @@ services:
     # --server.port=8000: configura el puerto interno del contenedor
     # --server.address=0.0.0.0: acepta conexiones desde cualquier IP
     # --server.headless=true: modo sin interfaz gráfica (apropiado para contenedores)
-    command: ["streamlit", "run", "app.py", "--server.port=8000", "--server.address=0.0.0.0", "--server.headless=true"]
+    command: ["streamlit", "run", "dashboard.py", "--server.port=8000", "--server.address=0.0.0.0", "--server.headless=true"]
