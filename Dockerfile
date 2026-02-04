@@ -36,4 +36,4 @@ EXPOSE 8000
 # --server.port=8000: configura Streamlit para usar el puerto 8000
 # --server.address=0.0.0.0: permite conexiones desde cualquier dirección IP (no solo localhost)
 # --server.headless=true: ejecuta Streamlit en modo headless (sin interfaz gráfica local)
-CMD ["streamlit", "run", "app.py", "--server.port=8000", "--server.address=0.0.0.0", "--server.headless=true"]
+CMD ["streamlit", "run", "dashboard.py", "--server.port=8000", "--server.address=0.0.0.0", "--server.headless=true"]
